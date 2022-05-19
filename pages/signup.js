@@ -1,87 +1,183 @@
-import React from "react";
+import React, { useState } from "react";
 import "./signup.css";
 import { Button, Input, Form } from "antd";
+import axios from "axios";
 
-const Signup = (props) => {
+function Signup() {
+    const [email, setEmail] = useState("");
+    const [code, setCode] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [nickname, setNickname] = useState("");
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleCode = (e) => {
+        setCode(e.target.value);
+    };
+
+    const handleUsername = (e) => {
+        setUsername(e.target.value);
+    };
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const handleNickname = (e) => {
+        setNickname(e.target.value);
+    };
+
+	const sendAuth = () => {
+		
+   
+	}
+
+	const checkAuth = () => {
+
+	}
+
+	const onClickOverlapUser = (name) => {
+		axios.get('https://27.96.131.85:8443/api/checkUsername').then(name => {
+        setUsername(name);
+	});
+	}
+
+	const onClickOverlapNickname = () => {
+
+	}
+
+    const onClickSubmit = () => {
+        let form = new FormData();
+        const json = JSON.stringify({
+            "email": email,
+            "nickname": nickname,
+            "password": password,
+            "username": username,
+        });
+        const blob = new Blob([json], {
+            type: "application/json",
+        });
+        form.append("signUp", blob);
+
+        console.log(form.get("email"));
+        axios
+            .post("https://27.96.131.85:8443/api/signUp", form)
+            .then((response) => console.log("success"))
+            .catch((error) => console.log(error));
+    };
+
     return (
         <div id="signup-container">
             <h2 id="title">회원 등록</h2>
-            <Form name="upload selling">
+            <Form name="signup-user">
                 <Form.Item
-                   label = {<div className='upload-label'>이름</div>}
-				   name = "name"
-				   rules={[{required: true, message: '이름을 입력하세요'}]}
+                    label={<div className="signup-label">이메일</div>}
+                    name="email"
+                    rules={[
+						{
+							required: true,
+                            message: "한성대학교 웹메일을 통해 인증하세요",
+                        },
+                    ]}
+					>
+					<p>
+                    <Input
+                        className="signup-email"
+                        size="large"
+                        placeholder="한성대학교 웹메일"
+                        id="se"
+                        value={email}
+                        onChange={handleEmail}
+                    />
+                    <Button size="large" id="buttons" onClick={sendAuth}>
+                        인증 메일 발송
+                    </Button>
+					</p>
+                    <Input
+                        className="signup-email"
+                        size="large"
+                        placeholder="인증 코드"
+                        id="sec"
+                        value={code}
+                        onChange={handleCode}
+                    />
+                    <Button size="large" id="buttons" onClick={checkAuth}>
+                        인증 코드 확인
+                    </Button>
+				
+                </Form.Item>
+
+				<Form.Item
+                    label={<div className="signup-label">닉네임</div>}
+                    name="nickname"
+                    rules={[{ required: true, message: "닉네임을 입력하세요" }]}
+                >
+                    <Input
+                        className="signup-email"
+                        size="large"
+                        placeholder="닉네임"
+                        id="snn"
+                        value={nickname}
+                        onChange={handleNickname}
+                    />
+                    <Button size="large" id="buttons" onClick={onClickOverlapNickname}>
+                        중복 확인
+                    </Button>
+                </Form.Item>
+
+                <Form.Item
+                    label={<div className="signup-label">아이디</div>}
+                    name="username"
+                    rules={[{ required: true, message: "아이디를 입력하세요" }]}
                 >
                     <Input
                         className="signup-name"
                         size="large"
-                        placeholder="이름을 입력해주세요"
-                        //value={title}
-                        //onChange={handleTitle}
+                        placeholder="아이디"
+                        id="sn"
+                        value={username}
+                        onChange={handleUsername}
                     />
+					<Button size="large" id="buttons" onClick={onClickOverlapUser}>
+                        중복 확인
+                    </Button>
                 </Form.Item>
 
                 <Form.Item
-                   label = {<div className='upload-label'>이메일</div>}
-				   name = "email"
-				   rules={[{required: true, message: '이메일을 입력하세요'}]}
+                    label={<div className="signup-label">비밀번호</div>}
+                    name="password"
+                    rules={[
+                        { required: true, message: "비밀번호를 입력하세요" },
+                    ]}
                 >
                     <Input
-                        className="signup-email"
+                        type="password"
+                        className="signup-password"
                         size="large"
-                        placeholder="이메일을 입력해주세요"
-						width="10px"
-                        //value={title}
-                        //onChange={handleTitle}
+                        placeholder="비밀번호"
+                        id="sp"
+                        value={password}
+                        onChange={handlePassword}
                     />
-					<Button>인증 메일 발송</Button>
-                </Form.Item>
-				<Form.Item
-                   label = {<div className='upload-label'>이메일</div>}
-				   name = "email"
-				   rules={[{required: true, message: '이메일을 입력하세요'}]}
-                >
-                    <Input
-                        className="signup-email"
-                        size="large"
-                        placeholder="이메일을 입력해주세요"
-						width="10px"
-                        //value={title}
-                        //onChange={handleTitle}
-                    />
-					<Button>인증 메일 발송</Button>
                 </Form.Item>
 
-                <li>
-                    비밀번호
-                    <Input
-                        type="signPwd"
-                        placeholder="내용을 입력하세요"
-                        title="비밀번호등록"
-                    />
-                </li>
-                <li>
-                    이름
-                    <Input
-                        type="signName"
-                        placeholder="내용을 입력하세요"
-                        title="이름등록"
-                    />
-                </li>
-                <li>
-                    전화번호('-'제외)
-                    <Input
-                        type="signNumber"
-                        placeholder="내용을 입력하세요"
-                        title="전화번호"
-                    />
-                </li>
-                <li>
-                    <button>회원가입</button>
-                </li>
+                <Form.Item>
+                    <Button
+                        onClick={onClickSubmit}
+                        type="primary"
+                        id="submit-button"
+                        size="large"
+                        htmlType="submit"
+                    >
+                        회원 등록하기
+                    </Button>
+                </Form.Item>
             </Form>
         </div>
     );
-};
+}
 
 export default Signup;

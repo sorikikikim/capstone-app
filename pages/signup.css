@@ -7,3 +7,25 @@
 	padding-left: 300px;
 	padding-right: 300px;
 }
+
+
+.signup-label {
+	text-align: left;
+	font-size: 18px;
+	width: 70px;
+}
+
+#snn, #sn, #sp, #sec {
+	width: 200px;
+}
+
+#se{
+	width: 250px;
+}
+
+#buttons {
+	color: rgb(8, 66, 163);
+	border-color: rgb(8, 66, 163);
+}
+
+

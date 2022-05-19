@@ -124,7 +124,6 @@ function Selling() {
 						placeholder='제목을 입력해주세요'
 						value={title} 
 						onChange={handleTitle}
-						id="utn"
 					/>
 				</Form.Item>
 				<Divider />
@@ -139,7 +138,6 @@ function Selling() {
 						placeholder='이름을 입력해주세요'
 						value={name} 
 						onChange={handleName}
-						id="utn"
 					/>
 				</Form.Item>
 				<Divider />
@@ -155,7 +153,6 @@ function Selling() {
 						placeholder='0'
 						value={price} 
 						onChange={handlePrice}
-						id="upc"
 					/>
 				</Form.Item>
 				<Divider />
