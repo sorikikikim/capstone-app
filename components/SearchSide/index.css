@@ -1,0 +1,15 @@
+.searchList{
+   border-right: solid thin grey;
+   margin: 0;
+   padding-top: 30px;
+   height: 100%;
+   width: 160px;
+   position: absolute;
+   overflow: auto;
+   }
+ 
+   .searchList li{
+   padding: 20px;
+   text-decoration: none;
+   font-size: 25px;
+   }

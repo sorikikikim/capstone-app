@@ -15,15 +15,12 @@
 	width: 70px;
 }
 
-#snn, #sn, #sp, #sec {
-	width: 200px;
-}
-
-#se{
+#se, #snn, #sn, #sp {
 	width: 250px;
 }
 
-#buttons {
+
+#buttons1, #buttons2 {
 	color: rgb(8, 66, 163);
 	border-color: rgb(8, 66, 163);
 }

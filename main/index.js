@@ -8,6 +8,7 @@ import QnA from '../pages/qna';
 import MyPage from '../pages/mypage';
 import Login from '../pages/login';
 import Signup from '../pages/signup';
+import Search from '../pages/search';
 
 const MainPage = () => {
   return (
@@ -22,7 +23,8 @@ const MainPage = () => {
             <Route path="/mypage" element={<MyPage />}></Route>
             <Route path="/login" element={<Login />}></Route>
 			<Route path="/signup" element={<Signup />}></Route>
-          </Routes>
+			<Route path="/search" element={<Search />}></Route>
+		  </Routes>
       </BrowserRouter>
     </div>
   )

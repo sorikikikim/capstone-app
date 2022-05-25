@@ -127,7 +127,7 @@
 .login > ul { padding: 20px 0 33px; list-style: none;}
 
 .login > ul li { padding: 0 0 12px; text-align: left; list-style: none;}
-.login > ul li input { width: 80%; height: 46px; box-sizing: border-box; text-indent: 16px;}
+.login > ul li input { text-align: left; width: 80%; height: 46px; box-sizing: border-box; text-indent: 16px;}
 .login > ul li input::-webkit-input-placeholder {font-size: 16px; color: #9fa19f;
 text-indent: 16px;} /* placeholder 잡는법 / text-indent = 들여쓰기*/
 
