@@ -36,7 +36,7 @@ function Signup() {
         console.log(password);
         if (
             (nicknameValid === true && usernameValid === true) === true &&
-            password.length !== 0
+            password.length !== 0 && email.length !== 0
         ) {
             submitValid = true;
         } else {
@@ -87,21 +87,26 @@ function Signup() {
         });
         checkNickUsernameValid();
         if (submitValid === true) {
-            axios
-                .post("https://27.96.131.85:8443/api/signUp", json, {
+            axios.post("https://27.96.131.85:8443/api/signUp", json, {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                })
-                .then((response) => console.log("success"))
+                }).then(() => console.log("success"))
                 .catch((error) => console.log(error));
-            alert("회원등록이 완료되었습니다.");
+			
+            if (window.confirm("회원등록이 완료되었습니다. 로그인 후 이메일 인증을 진행하세요.")){
+				window.open("./login", "_blank");
+			};
+		
         } else {
-            if (nicknameValid === false)
+			if (email.length === 0)
+				alert("이메일을 입력하세요.");
+            else if (nicknameValid === false)
                 alert("닉네임 중복 확인이 필요합니다.");
             else if (usernameValid === false)
                 alert("아이디 중복 확인이 필요합니다.");
-            else if (password.length === 0) alert("비밀번호를 입력하세요.");
+            else if (password.length === 0) 
+				alert("비밀번호를 입력하세요.");
         }
     };
 
@@ -112,14 +117,7 @@ function Signup() {
                 <Form.Item
                     label={<div className="signup-label">이메일</div>}
                     name="email"
-                    // rules={[
-                    // 	{
-                    // 		required: true,
-                    //         message: "한성대학교 웹메일을 통해 인증하세요",
-                    //     },
-                    // ]}
                 >
-                    {/* <p> */}
                     <Input
                         className="signup-email"
                         size="large"
@@ -128,27 +126,11 @@ function Signup() {
                         value={email}
                         onChange={handleEmail}
                     />
-                    {/* <Button size="large" id="buttons" onClick={sendAuth}>
-                        인증 메일 발송
-                    </Button>
-					</p>
-                    <Input
-                        className="signup-email"
-                        size="large"
-                        placeholder="인증 코드"
-                        id="sec"
-                        value={code}
-                        onChange={handleCode}
-                    />
-                    <Button size="large" id="buttons" onClick={checkAuth}>
-                        인증 코드 확인
-                    </Button> */}
                 </Form.Item>
 
                 <Form.Item
                     label={<div className="signup-label">아이디</div>}
                     name="username"
-                    // rules={[{ required: true, message: "아이디를 입력하세요" }]}
                 >
                     <Input
                         className="signup-name"
@@ -170,9 +152,6 @@ function Signup() {
                 <Form.Item
                     label={<div className="signup-label">비밀번호</div>}
                     name="password"
-                    // rules={[
-                    //     { required: true, message: "비밀번호를 입력하세요" },
-                    // ]}
                 >
                     <Input
                         type="password"
@@ -188,7 +167,6 @@ function Signup() {
                 <Form.Item
                     label={<div className="signup-label">닉네임</div>}
                     name="nickname"
-                    //rules={[{ required: true, message: "닉네임을 입력하세요" }]}
                 >
                     <Input
                         className="signup-email"

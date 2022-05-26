@@ -54,8 +54,19 @@ const Login = (props) => {
                     },
                 }
             )
-            .then((response) => console.log("success"))
-            .catch((error) => console.log(error));
+            .then(
+				function loginSuccess() {
+					console.log("success");
+					window.open("./auth","_self");
+				}
+			)
+            .catch(
+				function loginFail(error){
+					console.log(error);
+					alert("올바르지 않은 정보입니다. 다시 입력하세요");
+				}
+			);
+		
     };
 
     // 페이지 렌더링 후 가장 처음 호출되는 함수
@@ -75,7 +86,7 @@ const Login = (props) => {
                 한성대학교 학번/교직원번호로 로그인해주세요.
             </h3>
             <p>
-                ※ 아이디, 비밀번호는 학교 홈페이지와 동일합니다. <br />※ 회원
+			※ 아이디, 비밀번호는 학교 홈페이지와 동일합니다.  <br />※ 회원
                 등록을 통한 본인 인증 후 이용이 가능 합니다.
             </p>
             <ul>
