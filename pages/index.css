@@ -82,6 +82,17 @@
 	width: 55px;
 } */
 
+#main-title {
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	position: relative;
+	left:120px;
+	top: 8px;
+
+	letter-spacing: 8px;
+}
+
 
 #banner {
 	height: 300px;
@@ -91,12 +102,6 @@
 	border-bottom: 1px solid grey;
 }
 
-#body {
-	height: 200%;
-	width: 1024px;
-	margin: 0 auto;
-	background-color: lightgray;
-}
 
 
 #banner > p {
@@ -118,8 +123,8 @@
 	margin: 0 auto;
 }
 
-.login { height: auto; width: 500px; position:absolute; left:50%; 
-	transform: translate(-10%, 0); text-align: center;}
+.login { height: auto; width: 500px; position: relative; left:50%; 
+	transform: translate(-10%, 0); text-align: center; padding-bottom: 80px;}
 .login img {transform: translate(-160%, 50%); width: 300px; height:300px}
 .login h3 {position:absolute;  top:130px; text-align: left; font-size: 25px; color: #111; }
 .login p {position:absolute; top:230px; padding:0 10; text-align:left; font-size: 13px; color: #666;}
@@ -156,6 +161,37 @@ text-indent: 16px;} /* placeholder 잡는법 / text-indent = 들여쓰기*/
 	padding-right: 200px;
 }
 
-#category > img {
-	padding-right: 20px;
+.ranking {
+		font-size: 20px;
+		font-weight: bold;
+		color: rgb(8, 66, 163);
+		padding-bottom: 30px;
 }
+
+#sale-user-ranking {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 200px;
+	padding-right: 200px;
+	height: 230px;
+}
+
+#sale-goods-ranking {
+	align-items: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 200px;
+	padding-right: 200px;
+	height: 230px;
+	justify-content: center;
+}
+
+.list {
+	display: flex;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	align-items: center;
+	justify-content: space-between
+}
+

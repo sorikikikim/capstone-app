@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Footer from "../components/Footer";
 import { BrowserRouter, Router, Routes, Route } from 'react-router-dom';
 import Home from '../pages/home';
 import Selling from '../pages/selling';
@@ -27,6 +28,7 @@ const MainPage = () => {
 			<Route path="/search" element={<Search />}></Route>
 			<Route path="/auth" element={<Auth />}></Route>
 		  </Routes>
+		  <Footer />
       </BrowserRouter>
     </div>
   )

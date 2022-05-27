@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaBars,FaUserAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import {
   Nav,
   NavLink,
@@ -11,6 +12,7 @@ const Navbar = (props) => {
   return (
     <>
       <Nav>
+		  <Link to='/'><span id="main-title">한성마켓</span></Link>
         <NavLink to='/'>
         </NavLink>
         <Bars />

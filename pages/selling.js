@@ -1,4 +1,4 @@
-import { Form, Divider, Input, Upload, Button, Select} from 'antd';
+import { Form, Divider, Input, Button, Select} from 'antd';
 import React, { useState, useEffect } from 'react';
 import './selling.css';
 import axios from 'axios';
@@ -69,11 +69,19 @@ function Selling() {
 		axios.post('https://27.96.131.85:8443/api/boards', form
 		)
 		.then(
-			response => console.log("success")
+			function isLogin() {
+				console.log("register product success");
+				alert("상품 등록이 완료 되었습니다.");
+				window.open("/buying","_self");
+			}
 		)
 		.catch(
-			error => console.log(error)
-		)
+			function isNotLogin(error){
+				console.log(error);
+				alert("로그인 후 상품 등록이 가능합니다.")
+				window.open("./login", "_self")
+			}
+		);
 		 
     }
 
