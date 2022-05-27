@@ -1,23 +1,19 @@
 import React from "react";
 import "./auth.css";
-import { Button, Input } from "antd";
+import { Button } from "antd";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
+
+//인증 아이디 여부 체크
+//window.isAuth = false;
 
 function Auth() {
 
     // auth 버튼 클릭 이벤트
     const onClickAuth = () => {
-        axios.post("https://27.96.131.85:8443/api/mail/auth").
-			then(
-				function getAuthMail(params) {
-					console.log("send auth-mail : success");
-					axios.get("https://27.96.131.85:8443/api/mail/auth")
-					
-				
-				}  
-			)
+        axios.post("https://27.96.131.85:8443/api/mail/auth")
+			.then(() => console.log("send auth-mail : success"))
             .catch((error) => console.log(error));
     };
 
@@ -27,12 +23,12 @@ function Auth() {
     };
    
     return (
-        <div className="login">
+        <div className="auth">
             <img src={require("../images/loginLogo.png")} />
             <h3>
-                환영합니다!
+                환영합니다 capstone123님!
                 <br />
-                한성대학교 학번/교직원번호로 로그인해주세요.
+               학교에서의 거래를 시작해보세요.
             </h3>
             <p>
                 ※ 회원 등록 후 최초 1회의 본인 인증이 필요합니다. <br />
@@ -40,10 +36,10 @@ function Auth() {
             </p>
             <ul>
                 <li>
-                    <Button onClick={onClickAuth}>이메일 본인 인증</Button>
+                    <Button id="button1" onClick={onClickAuth}>이메일 본인 인증</Button>
                 </li>
                 <li>
-					<Button onClick={onClickHome}>홈으로 이동하기</Button>
+					<Button id="button2" onClick={onClickHome}>홈으로 이동하기</Button>
                 </li>
             </ul>
 

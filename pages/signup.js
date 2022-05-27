@@ -5,6 +5,8 @@ import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
+
+//중복 체크 변수
 let nicknameValid = false;
 let usernameValid = false;
 let submitValid = false;
@@ -95,7 +97,7 @@ function Signup() {
                 .catch((error) => console.log(error));
 			
             if (window.confirm("회원등록이 완료되었습니다. 로그인 후 이메일 인증을 진행하세요.")){
-				window.open("./login", "_blank");
+				window.open("./login", "_self");
 			};
 		
         } else {

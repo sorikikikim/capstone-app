@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 
+
 const Login = (props) => {
     const [inputId, setInputId] = useState("");
     const [inputPw, setInputPw] = useState("");
@@ -63,7 +64,7 @@ const Login = (props) => {
             .catch(
 				function loginFail(error){
 					console.log(error);
-					alert("올바르지 않은 정보입니다. 다시 입력하세요");
+					alert("아이디 또는 비밀번호를 잘못 입력했습니다. \n입력하신 내용을 다시 확인해주세요.");
 				}
 			);
 		
@@ -83,11 +84,11 @@ const Login = (props) => {
             <h3>
                 안녕하세요!
                 <br />
-                한성대학교 학번/교직원번호로 로그인해주세요.
+                가입 시 설정한 아이디/비밀번호로 로그인해주세요.
             </h3>
             <p>
-			※ 아이디, 비밀번호는 학교 홈페이지와 동일합니다.  <br />※ 회원
-                등록을 통한 본인 인증 후 이용이 가능 합니다.
+			※ 아이디, 비밀번호는 하단의 회원 등록을 통해 설정해주세요.  <br />
+			※ 한성대학교 웹 메일을 통한 본인 인증 후 이용이 가능합니다.
             </p>
             <ul>
                 <li>
@@ -124,7 +125,7 @@ const Login = (props) => {
                         </a>
                     </li>
                     <li>
-                        <Link to="/signup">회원가입</Link>
+                        <Link to="/signup">회원 등록</Link>
                     </li>
                     <li>
                         <a
