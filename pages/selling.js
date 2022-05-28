@@ -85,12 +85,6 @@ function Selling() {
 		 
     }
 
-	useEffect(() => {
-		
-	},
-	// 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
-	[]);
-
 	const onSubmit = (values) => {
 		console.log(values);
 	}
