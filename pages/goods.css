@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#goods{
+    width: 700px;
+    margin:auto;
+}
+
+.images_container{
+    text-align: center;
+    margin: 50px 30px;
+}
+
+.goodsImages{
+    text-align: center;
+    width: 150px;
+    height: 150px;
+}
+
+.goodsContext{
+    text-align: center;
+    margin : 10px 100px;
+}
+
+.goodsName{
+    text-align: left;
+    margin-top: 20px;
+}
+
+.goodsPrice{
+    text-align: left;
+    margin-top: 20px;
+}
+
+.goodsWriter{
+    text-align: left;
+    margin-top: 20px;
+}
+
+.goodsText{
+    text-align: left;
+    margin-top: 20px;
+    border-width: 1px;
+    border-color: #a0a0a0 ;
+    border-style: solid;
+    border-radius: 15px;
+    min-height: 80px;
+    padding: 0px 10px;
+}
+
+.goodsBtn{
+    text-align: right;
+    margin-top: 20px;
+}
+
+.zzimBtn{
+    margin-right: 10px;
+}
+/* .goodsCreatedTime{
+    text-align: left;
+    margin-top: 20px;
+} */

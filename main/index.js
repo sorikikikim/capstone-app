@@ -11,6 +11,7 @@ import Login from '../pages/login';
 import Signup from '../pages/signup';
 import Search from '../pages/search';
 import Auth from '../pages/auth';
+import Goods from '../pages/goods';
 
 const MainPage = () => {
   return (
@@ -27,6 +28,7 @@ const MainPage = () => {
 			<Route path="/signup" element={<Signup />}></Route>
 			<Route path="/search" element={<Search />}></Route>
 			<Route path="/auth" element={<Auth />}></Route>
+			<Route path="/goods/:id" element={<Goods />}></Route>
 		  </Routes>
 		  <Footer />
       </BrowserRouter>

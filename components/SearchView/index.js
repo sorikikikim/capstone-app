@@ -1,35 +1,28 @@
 import React, {useState, useEffect} from 'react';
-import { BrowserRouter, Link, useParams } from 'react-router-dom';
+import { BrowserRouter, Link, NavLink, useParams } from 'react-router-dom';
 import axios from 'axios';
 import './index.css';
+import Goods from '../../pages/goods';
 
 
 const SearchView  = (props) => {
     const [boards, setBoards] = useState([]);
-    // const [img, setImg] = document.querySelectorAll('.img');
-    // const test = new URL('https://27.96.131.85:8443/api/boards')
-    // const id = test.searchParams.get('id')
-
-    useEffect(function(){
-            axios
-            .get("https://27.96.131.85:8443/api/boards")
-            .then(function(result){
-                console.log('responsed');
-                console.log(result)
-                const boards = result.data; 
-                setBoards(boards);
-            })
-            .catch(function(error){
-                console.error('에러 발생: ', error);
-            })
-             
-        },[])
-
-        // useEffect(() => {
-        //     if (img) {
-        //         console.log(img[0]);
-        //     }
-        //   }, [ img ]);    
+    const {id} = useParams();
+  
+  useEffect(() => {
+    (async function () {
+      // 게시글 정보 가져오기
+      const response = await axios.get("https://27.96.131.85:8443/api/boards")
+        .catch((err) => {
+          console.log(err);
+        });
+      const boards = response.data;
+      
+      // 게시글 정보 state에 저장
+      setBoards(boards);
+      console.log(response.data);
+    })();
+  }, []);
 
     return(
         <div>
@@ -37,14 +30,16 @@ const SearchView  = (props) => {
             <div id='product-list'>
                 {
                     boards.map(function(boards, index){
-                    
                         return (
-                           
                             <div className='product-card'>
-                                <Link className='product-link' to={"/goods/:id"}>
+                                <Link className='product-link' to={`/goods/${boards.id}`}>
                                     <div>
-                                        { <img className='product-img' src={`https://27.96.131.85:8443/api/images/${boards.boardImages[0]}.id`} /> }
-                                        {console.log(boards.boardImages[0])}                      
+                                    {
+                                    boards.boardImages[0]
+                                    ? <img className="product-img" width="100" height="100"
+                                      src={`https://27.96.131.85:8443/api/images/${boards?.boardImages[0]?.id}`} />
+                                    : <img className="product-img" width="100" height="100" src={require("../../images/noImage.png")} />  
+                                    }                                 
                                     </div>
                                     <div className='product-contents'>
                                         <span className='product-name'>
@@ -59,9 +54,7 @@ const SearchView  = (props) => {
                                     </div>
                                 </Link>
                             </div>
-                           
                         )
-                        
                     })
                 }
             </div>

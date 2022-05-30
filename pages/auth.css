@@ -12,8 +12,8 @@
 	padding-right: 300px;
 }
 
-.auth { height: auto; width: 500px; position:absolute; left:50%; 
-	transform: translate(-10%, 0); text-align: center;}
+.auth { height: auto; width: 500px; position: relative; left:50%; 
+	transform: translate(-10%, 0); text-align: center; padding-bottom: 80px;}
 .auth img {transform: translate(-160%, 50%); width: 300px; height:300px}
 .auth h3 {position:absolute;  top:130px; text-align: left; font-size: 25px; color: #111; }
 .auth p {position:absolute; top:230px; padding:0 10; text-align:left; font-size: 13px; color: #666;}

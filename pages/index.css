@@ -161,14 +161,19 @@ text-indent: 16px;} /* placeholder 잡는법 / text-indent = 들여쓰기*/
 	padding-right: 200px;
 }
 
-.ranking {
+.ranking-label {
 		font-size: 20px;
 		font-weight: bold;
 		color: rgb(8, 66, 163);
 		padding-bottom: 30px;
 }
 
-#sale-user-ranking {
+#ranking-array {
+	padding-top: 10px;
+	padding-bottom: 50px;
+}
+
+#ranking {
 	padding-top: 30px;
 	padding-bottom: 30px;
 	padding-left: 200px;
@@ -176,15 +181,11 @@ text-indent: 16px;} /* placeholder 잡는법 / text-indent = 들여쓰기*/
 	height: 230px;
 }
 
-#sale-goods-ranking {
-	align-items: center;
-	padding-top: 30px;
-	padding-bottom: 30px;
-	padding-left: 200px;
-	padding-right: 200px;
-	height: 230px;
-	justify-content: center;
+.ranking-imgs {
+	width: 80px;
+	height: 80px;
 }
+
 
 .list {
 	display: flex;
@@ -192,6 +193,15 @@ text-indent: 16px;} /* placeholder 잡는법 / text-indent = 들여쓰기*/
 	padding-right: 10px;
 	padding-left: 10px;
 	align-items: center;
-	justify-content: space-between
+	justify-content: space-between; 
+	flex-direction: row;
 }
+
+.ranking-content {
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	padding-top: 15px;
+}
+
 

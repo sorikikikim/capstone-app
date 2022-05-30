@@ -24,7 +24,7 @@ const Navbar = (props) => {
           <NavLink to='/selling' activeStyle>
             상품등록
           </NavLink>
-          <NavLink to='/buying' activeStyle>
+          <NavLink to='/search' activeStyle>
             상품검색
           </NavLink>
           <NavLink to='/qna' activeStyle>
