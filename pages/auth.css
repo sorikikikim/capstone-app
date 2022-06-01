@@ -25,9 +25,11 @@
 .auth > ul li input::-webkit-input-placeholder {font-size: 16px; color: #9fa19f;
 text-indent: 16px;} /* placeholder 잡는법 / text-indent = 들여쓰기*/
 
-#button1, #button2 { width: 80%; height:56px; font-size:18px; }
-#button1 { color: #fff; background: rgb(8, 66, 163); }
-#button2 { color:rgb(8, 66, 163); background: #fff; }
+#button1, #button2, #button3 { height:56px; font-size:18px;}
+
+#button1 { color: #fff; background: rgb(8, 66, 163); width:80%;}
+#button2, #button3{  color:rgb(8, 66, 163); background: #fff; width:40%; border-color: rgb(8, 66, 163);}
+
 
 /*버튼은 세로 가운데 정렬 자동이기 떄문에 line-height:56px; 안줘도 된다. 높이만 주면
 텍스트가 알아서 가운데 정렬 들어감*/

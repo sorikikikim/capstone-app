@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Link, NavLink, useParams } from 'react-router-dom';
 import axios from 'axios';
 import './index.css';
-import Goods from '../../pages/goods';
 
 
 const SearchView  = (props) => {

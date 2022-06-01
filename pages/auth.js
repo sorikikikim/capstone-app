@@ -37,6 +37,15 @@ function Auth() {
         window.open("/", "_self");
     };
 
+	const onClickLogout = () => {
+		axios.post('https://27.96.131.85:8443/api/logout')
+		.then(
+			alert("로그아웃이 완료되었습니다."),
+			window.open("/login", "self")
+		)
+		.catch((error) => console.log(error));
+	}
+
     return (
         <div className="auth">
             <img src={require("../images/loginLogo.png")} />
@@ -58,6 +67,9 @@ function Auth() {
                 <li>
                     <Button id="button2" onClick={onClickHome}>
                         홈으로 이동하기
+                    </Button>
+					<Button id="button3" onClick={onClickLogout} >
+                        로그아웃
                     </Button>
                 </li>
             </ul>

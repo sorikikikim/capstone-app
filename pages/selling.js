@@ -5,14 +5,18 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
+let files = [];
+
 function Selling() {
 	const [title, setTitle] = useState('');
 	const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
 	const [category, setCategory] = useState(0);
 	const [description, setDescription] = useState('');
-
+	
 	const selectList = ["book","digital","clothes","furniture","appliance","food"];
+	
+	// console.log(typeof category);
 	// input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
     const handleTitle = (e) => {
         setTitle(e.target.value)
@@ -26,22 +30,19 @@ function Selling() {
         setPrice(e.target.value)
     }
 
-	const handleCategory = (e) => {
-        setCategory(e.target.value)
-    }
+	// const handleCategory = (e) => {
+    //     setCategory(e.target.value)
+	// 	console.log(e.target)
+	// 	console.log(e.target.value)
+    // }
 
     const handleDescription = (e) => {
         setDescription(e.target.value)
     }
 
-	let files = [];
-
 	function appendFile(){
 		files = document.getElementById("upload-form").files;
-		console.log(files.length);
-	}
-
-	
+	}	
 
     const onClickSubmit = () => {
 		
@@ -49,7 +50,7 @@ function Selling() {
 		const json = JSON.stringify({	
 			"title":title,
 			"goodsName":name,
-			"goodsCategory":category,
+			"goodsCategory":selectList[category],
 			"content":description,
 			"price":price
 		});
@@ -60,10 +61,10 @@ function Selling() {
 
 		for (let i = 0; i < files.length; i++)
 		{
-			console.log(1);
 			form.append('images', files[i]);
+			console.log(files);
 		}
-
+		
         console.log('upload product')
 		console.log(form.get('goodsName'));
 		axios.post('https://27.96.131.85:8443/api/boards', form
@@ -72,7 +73,7 @@ function Selling() {
 			function isLogin() {
 				console.log("register product success");
 				alert("상품 등록이 완료 되었습니다.");
-				window.open("/buying","_self");
+				window.open("./search","_self");
 			}
 		)
 		.catch(
@@ -84,6 +85,12 @@ function Selling() {
 		);
 		 
     }
+
+	useEffect(() => {
+		
+	},
+	// 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
+	[]);
 
 	const onSubmit = (values) => {
 		console.log(values);
@@ -166,14 +173,15 @@ function Selling() {
 					<Select
 						className='upload-category'
 						size='large'
-						onChange={handleCategory}
 						value={category}
+						//onChange={handleCategory}
 					>
 						{selectList.map((item) => (
-           				<Option value={item} key={item}>
+           				<Option value={selectList[item]} key={item}>
               				{item}
             			</Option>
-          				))}
+          				))
+						}
 					
 					</Select>
 				</Form.Item>
@@ -203,3 +211,4 @@ function Selling() {
 }
 
 export default Selling;
+
