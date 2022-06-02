@@ -28,20 +28,20 @@ const Selling = (props) => {
     function goToback() {
         window.open("./mypage", "_self");
     }
-	
+
     return (
         <div>
             <div className="sellingTitle"> 판매 중인 상품</div>
+            <img
+                src="back.png"
+                id="back-button"
+                onClick={goToback}
+                width="50"
+                height="50"
+            />
 
             <hr />
             <div id="product-list">
-                <img
-                    src="back.png"
-                    id="back-button"
-                    onClick={goToback}
-                    width="50"
-                    height="50"
-                />
                 {boards.map(function (boards, index) {
                     return (
                         <div className="product-card">

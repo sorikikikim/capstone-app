@@ -7,7 +7,7 @@ axios.defaults.withCredentials = true;
 
 let files = [];
 
-function Selling() {
+function Sell() {
 	const [title, setTitle] = useState('');
 	const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
@@ -205,5 +205,5 @@ function Selling() {
 	)
 }
 
-export default Selling;
+export default Sell;
 
