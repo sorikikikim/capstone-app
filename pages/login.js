@@ -96,7 +96,7 @@ const Login = (props) => {
                         type="text"
                         value={inputId}
                         onChange={handleInputId}
-                        placeholder="학번 및 교직원번호"
+                        placeholder="아이디"
                         title="아이디입력"
                     />
                 </li>

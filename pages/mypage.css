@@ -1,0 +1,15 @@
+.aboutMe{
+    padding : 45px 0 100px 500px;
+	padding-bottom: 360px;
+}
+
+.aboutMeTitle{
+    color: #0b4ba2;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 0 50px 200px;
+}
+
+p{
+    margin-bottom: 40px;
+}

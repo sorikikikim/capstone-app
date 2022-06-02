@@ -2,15 +2,16 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./goods.css";
-import { Button } from "antd";
+import { Button, Select } from "antd";
 
 const Goods = (props) => {
     const [boards, setBoards] = useState({});
     const [images, setImages] = useState([]);
-	const [user, setUser] = useState([]);
+    const [user, setUser] = useState([]);
     const { id } = useParams();
     const [isWishAdd, setIsWishAdd] = useState(false);
     const [wishCount, setWishCount] = useState(0);
+    const onSale = ["판매 중", "판매 완료"];
 
     const wishAddHandler = () => {
         setIsWishAdd(!isWishAdd);
@@ -45,21 +46,18 @@ const Goods = (props) => {
         }
     };
 
-	function deleteGoods() {
-		axios.delete(`https://27.96.131.85:8443/api/boards/${boards.id}`)
-		.catch(
-			function isNotDeleted(error){
-				console.log(error);
-			}
-		)
-		.then(
-			function isDelted() {
-				console.log("delete product success");
-				alert("상품 삭제가 완료 되었습니다.");
-				window.open("/search","_self");
-			}
-		);
-	}
+    function deleteGoods() {
+        axios
+            .delete(`https://27.96.131.85:8443/api/boards/${boards.id}`)
+            .catch(function isNotDeleted(error) {
+                console.log(error);
+            })
+            .then(function isDelted() {
+                console.log("delete product success");
+                alert("상품 삭제가 완료 되었습니다.");
+                window.open("/search", "_self");
+            });
+    }
 
     useEffect(() => {
         (async function () {
@@ -94,6 +92,8 @@ const Goods = (props) => {
         }
     }, []);
 
+    function isOnSale() {}
+
     return (
         <div id="goods">
             <p id="title">상품 정보</p>
@@ -117,22 +117,41 @@ const Goods = (props) => {
 
                 <div className="goodsLabel">판매자 : {boards.writer}</div>
 
-                <p className="goodsLabel">상품 설명  <div className="goodsText"> {boards.content}</div></p> 	
+                <p className="goodsLabel">
+                    상품 설명 <div className="goodsText"> {boards.content}</div>
+                </p>
 
                 <div className="goodsBtn">
                     <span className="zzimBtn">
-                        <Button
-                            class="btn btn-primary"
-                            type="submit"
-                            onClick={wishCountHandler}
-                        >
-                            찜 하기
-                        </Button>
+                        {user.username === boards.writer ? (
+                            <Select
+							className="upload-category"
+							placeholder="판매 여부">
+                                {onSale.map((item) => (
+                                    <option value={onSale[item]} key={item}>
+                                        {item}
+                                    </option>
+                                ))}
+                            </Select>
+                        ) : (
+                            <Button
+                                class="btn btn-primary"
+                                type="submit"
+                                onClick={wishCountHandler}
+                            >
+                                찜 하기
+                            </Button>
+                        )}
                     </span>
                     {console.log(user.username)}
                     {console.log(boards.writer)}
                     {user.username === boards.writer ? (
-                        <Button className="btn btn-primary" onClick={deleteGoods}>게시글 삭제</Button>
+                        <Button
+                            className="btn btn-primary"
+                            onClick={deleteGoods}
+                        >
+                            게시글 삭제
+                        </Button>
                     ) : (
                         <Button class="btn btn-primary" type="submit">
                             판매자와 대화

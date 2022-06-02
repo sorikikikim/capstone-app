@@ -3,21 +3,28 @@ hr{
     margin-left : auto;
     margin-right : auto;
     position: relative;
-    top: 100px;
+    top: 20px;
     margin: 0 auto;
 }
 
+.zzimTitle {
+  color: #0b4ba2;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
 
 #product-list {
     display: flex;
     flex-wrap: wrap;
     margin-top: 12px;
-    justify-content: space-between;
+    justify-content: flex-start;
     position : relative;
     top: 150px;
     width: 75%;
     margin: 0 auto;
-	padding-bottom: 250px;
 }
 
 .product-card {
@@ -58,6 +65,12 @@ hr{
 }
 
 .product-price {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.product-nickname {
   font-size: 16px;
   font-weight: 600;
   margin-top: 4px;

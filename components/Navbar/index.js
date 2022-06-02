@@ -36,14 +36,11 @@ const Navbar = (props) => {
                     <NavLink to="/." activeStyle>
                         홈
                     </NavLink>
-                    <NavLink to="/selling" activeStyle>
+                    <NavLink to="/sell" activeStyle>
                         상품등록
                     </NavLink>
                     <NavLink to="/search" activeStyle>
                         상품검색
-                    </NavLink>
-                    <NavLink to="/qna" activeStyle>
-                        문의하기
                     </NavLink>
                     {user.username ? (
                         <NavLink to="/auth" activeStyle>
@@ -54,6 +51,9 @@ const Navbar = (props) => {
                             로그인
                         </NavLink>
                     )}
+					<NavLink to="/mypage" activeStyle>
+                        채팅목록
+                    </NavLink>
                     <NavLink to="/mypage" activeStyle>
                         <FaUserAlt />
                     </NavLink>

@@ -60,7 +60,7 @@ function Signup() {
                     usernameValid = true;
                 }
                 checkNickUsernameValid();
-            });
+            })
     }
 
     function onClickDuplicateNickname() {

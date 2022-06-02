@@ -1,15 +1,24 @@
 .searchList{
-   border-right: solid thin grey;
-   margin: 0;
-   padding-top: 30px;
-   height: 100%;
-   width: 160px;
-   position: absolute;
-   overflow: auto;
-   }
+	border-right: solid thin grey;
+	margin: 0;
+	padding-top: 30px;
+	height: 80%;
+	width: 200px;
+	position: absolute;
+	overflow: auto;
+	font-weight: bold;
+	font-size: 20px;
+	}
+  
+	.searchList li{
+	padding: 20px;
+	text-decoration: none;
+	font-size: 15px;
+	cursor: pointer;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	}
+	
  
-   .searchList li{
-   padding: 20px;
-   text-decoration: none;
-   font-size: 25px;
-   }
+	.searchList li:hover{
+	   color: #0b4ba2;
+	}

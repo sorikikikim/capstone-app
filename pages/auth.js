@@ -28,7 +28,9 @@ function Auth() {
     const onClickAuth = () => {
         axios
             .post("https://27.96.131.85:8443/api/mail/auth")
-            .then(() => console.log("send auth-mail : success"))
+            .then(() => console.log("send auth-mail : success"),
+			alert("인증 메일 전송이 완료되었습니다. 전송된 링크를 클릭하세요."),
+			window.open('/mypage', '_self'))
             .catch((error) => console.log(error));
     };
 

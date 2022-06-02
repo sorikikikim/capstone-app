@@ -1,66 +1,88 @@
-#title {
-	padding-bottom: 30px;
+hr{
+    width: 50%;
+    margin-left : auto;
+    margin-right : auto;
+    position: relative;
+    top: 20px;
+    margin: 0 auto;
 }
 
-#upload-container {
-	padding-top: 60px;
-	padding-left: 300px;
-	padding-right: 300px;
-}
-#upload-img-placeholder {
-	width: 200px;
-	height: 200px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border: 1px solid rgb(230, 230, 230);
-	background: rgb(250, 250, 253);
-	margin-left: 16px;
+#back-button {
+	position: relative;
+	left:80px;
+	top: 30px;
 }
 
-#upload-img-placeholder > img {
-	width: 30px;
-	height: 30px;
+.sellingTitle {
+  color: #0b4ba2;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
-#upload-img-placeholder > span {
-	font-size: 14px;
-	color: rgb(195, 194, 204);
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    justify-content: space-between;
+    position : relative;
+    top: 150px;
+    width: 75%;
+    margin: 0 auto;
 }
 
-.upload-name {
-	width: 100px;
+.product-card {
+  width: 180px;
+  height: 300px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
 }
 
-.upload-label {
-	text-align: left;
-	font-size: 18px;
-	width: 100px;
+.product-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffffaa;
+  pointer-events: none;
 }
 
-#product-description {
-	height: 150px;
+.product-img {
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
 }
 
-#submit-button {
-	float: right;
-	background-color: rgb(8, 66, 163);
-	border: none;
-	margin-top: 16px;
+.product-contents {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
 }
 
-#upload-img {
-	width: 200px;
-	height: 200px;
-	margin-left: 16px;
-	object-fit: contain;
+.product-name {
+  font-size: 14px;
 }
 
-#utn {
-	width: 300px;
+.product-price {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 4px;
 }
 
-#upc {
-	width: 200px;
+.product-nickname {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.product-seller {
+  display: flex;
+  align-items: center;
 }
