@@ -51,7 +51,7 @@ const Navbar = () => {
                             로그인
                         </NavLink>
                     )}
-					<NavLink to="/mypage" activeStyle>
+					<NavLink to="/chat" activeStyle>
                         채팅목록
                     </NavLink>
                     <NavLink to="/mypage" activeStyle>

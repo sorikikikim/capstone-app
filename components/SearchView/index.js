@@ -25,7 +25,6 @@ const SearchView  = (props) => {
 
     return(
         <div>
-            <hr />
             <div id='product-list'>
                 {
                     boards.map(function(boards, index){

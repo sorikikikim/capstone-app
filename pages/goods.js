@@ -46,6 +46,15 @@ const Goods = (props) => {
         }
     };
 
+    const connectChatUser = () => {
+        axios
+            .get(
+                `https://27.96.131.85:8443/api/chatRoom?receiverId=${boards.writerId}`
+            )
+			.catch((error) => console.log(error))
+            .then(window.open('/chat', '_self'))
+    };
+
     function deleteGoods() {
         axios
             .delete(`https://27.96.131.85:8443/api/boards/${boards.id}`)
@@ -92,8 +101,6 @@ const Goods = (props) => {
         }
     }, []);
 
-    function isOnSale() {}
-
     return (
         <div id="goods">
             <p id="title">상품 정보</p>
@@ -125,8 +132,9 @@ const Goods = (props) => {
                     <span className="zzimBtn">
                         {user.username === boards.writer ? (
                             <Select
-							className="upload-category"
-							placeholder="판매 여부">
+                                className="upload-category"
+                                placeholder="판매 여부"
+                            >
                                 {onSale.map((item) => (
                                     <option value={onSale[item]} key={item}>
                                         {item}
@@ -153,7 +161,11 @@ const Goods = (props) => {
                             게시글 삭제
                         </Button>
                     ) : (
-                        <Button class="btn btn-primary" type="submit">
+                        <Button
+                            class="btn btn-primary"
+                            type="submit"
+                            onClick={connectChatUser}
+                        >
                             판매자와 대화
                         </Button>
                     )}

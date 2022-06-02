@@ -13,6 +13,7 @@ import Search from '../pages/search';
 import Auth from '../pages/auth';
 import Goods from '../pages/goods';
 import Zzim from '../pages/zzim';
+import Chatting from '../pages/chat'
 
 const MainPage = () => {
   return (
@@ -31,6 +32,7 @@ const MainPage = () => {
 			<Route path="/search" element={<Search />}></Route>
 			<Route path="/auth" element={<Auth />}></Route>
 			<Route path="/goods/:id" element={<Goods />}></Route>
+			<Route path="/chat" element={<Chatting />}></Route>
 		  </Routes>
 		  <Footer />
       </BrowserRouter>
