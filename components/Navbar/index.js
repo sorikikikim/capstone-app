@@ -5,7 +5,7 @@ import { Nav, NavLink, Bars, NavMenu } from "./Navbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Navbar = (props) => {
+const Navbar = () => {
     const [user, setUser] = useState([]);
     useEffect(() => {
         {

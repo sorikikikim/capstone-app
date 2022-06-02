@@ -41,7 +41,7 @@ const Selling = (props) => {
             />
 
             <hr />
-            <div id="product-list">
+            <div id="product-list1">
                 {boards.map(function (boards, index) {
                     return (
                         <div className="product-card">

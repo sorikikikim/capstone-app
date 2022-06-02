@@ -21,7 +21,7 @@ const Zzim = (props) => {
             console.log("good" + response.data);
         })();
     }, []);
-	
+
     function goToback() {
         window.open("./mypage", "_self");
     }
@@ -39,7 +39,7 @@ const Zzim = (props) => {
                 height="50"
             />
 
-            <div id="product-list">
+            <div id="product-list2">
                 {boards.map(function (boards, index) {
                     return (
                         <div className="product-card">
